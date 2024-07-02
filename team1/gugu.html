@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>구구단 요청하기</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script type = "text/javascript">
+function getGugu()
+{
+	var param = {};
+	param.dan = $('#dan').val(); // dan이 키 / $('#dan').val();가 밸류가 되는 것
+	$.ajax 
+	({
+		url : '../gugu',
+		cache : false,
+		type : 'post',
+		data : param,
+		dataType : 'text',
+		success : function(res)
+		{
+			$('#gugu').html(res); // #~ : 아이디 셀렉터
+		},
+		error : function(xhr, status, err) // xhr(XML HttpRequest) : 서버로 요청을 해주는 오브젝트
+		{alert('에러 : ' + err);}
+	});
+}
+
+</script>
+</head>
+<body>
+  <h3>보고싶은 구구단 수를 입력하세요.</h3>
+    <div>
+    [<a href = "../gugu?dan=2">2</a>] 
+    [<a href = "../gugu?dan=3">3</a>]
+    [<a href = "../gugu?dan=4">4</a>]
+    [<a href = "../gugu?dan=5">5</a>]
+    [<a href = "../gugu?dan=6">6</a>]
+    [<a href = "../gugu?dan=7">7</a>]
+    [<a href = "../gugu?dan=8">8</a>] 
+    [<a href = "../gugu?dan=9">9</a>]
+   </div>
+   <p>
+   <div>
+   <form action = "../gugu" method = "post">
+      <input type = "text" name = "dan" value = "2">단
+      <button type = "submit">결과 보기</button>
+   </form>
+   </div>
+   <div>
+      <h3>비동기식 요청하기(AJAX)</h3>
+      구구단 수 <input type = "text" name = "dan" id = "dan">
+      <button type = "button" onclick = "getGugu()">비동기 구구단 요청</button>
+   </div> 
+   <p>
+   <div id = "gugu">
+      
+   </div>
+</body>
+</html> 

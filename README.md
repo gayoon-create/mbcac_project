@@ -4,7 +4,7 @@
 * 기간 : 3달
    + 1달 : 분석
    + 1달 : 설계
-   + 1달 : <span style="color:red;">구현</span>
+   + 1달 : 구현
       - 1주 : 로그인
       - 2주 : 게시판
       - 3주 : 뉴스
@@ -24,4 +24,4 @@
 <c:set var="added" value="${dao.add(board)}"/>
 {"added":${added}}
 ```
-<span style="color:red;">구현</span>
+<h3 style="background-color:red;">구현</h3>
